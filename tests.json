@@ -1,0 +1,79 @@
+[
+  {
+    "comment": "negative array index add",
+    "options": ["SupportNegativeArrayIndex"],
+    "doc": [1, 2, 3],
+    "patch": [
+      {
+        "op": "add",
+        "path": "/-1",
+        "value": 4
+      }
+    ],
+    "expected": [1, 2, 4, 3]
+  },
+  {
+    "comment": "negative array index replace",
+    "options": ["SupportNegativeArrayIndex"],
+    "doc": [1, 2, 3],
+    "patch": [
+      {
+        "op": "replace",
+        "path": "/-1",
+        "value": 4
+      }
+    ],
+    "expected": [1, 2, 4]
+  },
+  {
+    "comment": "negative array index remove",
+    "options": ["SupportNegativeArrayIndex"],
+    "doc": [1, 2, 3],
+    "patch": [
+      {
+        "op": "remove",
+        "path": "/-2"
+      }
+    ],
+    "expected": [1, 3]
+  },
+  {
+    "comment": "negative array index move",
+    "options": ["SupportNegativeArrayIndex"],
+    "doc": [1, 2, 3],
+    "patch": [
+      {
+        "op": "move",
+        "path": "/-3",
+        "from": "/-2"
+      }
+    ],
+    "expected": [2, 1, 3]
+  },
+  {
+    "comment": "negative array index copy",
+    "options": ["SupportNegativeArrayIndex"],
+    "doc": [1, 2, 3],
+    "patch": [
+      {
+        "op": "copy",
+        "path": "/-3",
+        "from": "/-2"
+      }
+    ],
+    "expected": [2, 1, 2, 3]
+  },
+  {
+    "comment": "negative array index copy",
+    "options": ["SupportNegativeArrayIndex"],
+    "doc": [1, 2, 3],
+    "patch": [
+      {
+        "op": "test",
+        "path": "/-3",
+        "value": 1
+      }
+    ],
+    "expected": [1, 2, 3]
+  }
+]
